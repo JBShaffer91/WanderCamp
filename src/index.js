@@ -1,15 +1,20 @@
-import './css/styles.css';
-import { updateUI } from './controllers/weatherController';
-import { routeController } from './controllers/routeController.js';
-import { weatherController } from './controllers/weatherController.js';
+const express = require('express');
+const app = express();
 
+// Import controllers
+const locationController = require('./controllers/locationController');
+const weatherController = require('./controllers/weatherController');
+const routeController = require('./controllers/routeController');
 
-document.addEventListener('DOMContentLoaded', () => {
-  routeController.init(); // initialize route controller
-  weatherController.init(); // initialize weather controller
-  
-  document.getElementById('generate').addEventListener('click', () => {
-    const location = document.getElementById('location').value;
-    updateUI(location);
-  });
+// Serve static files
+app.use(express.static('public'));
+
+// Set up routes
+app.get('/', routeController.home);
+app.get('/weather/:location', weatherController.getWeather);
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });

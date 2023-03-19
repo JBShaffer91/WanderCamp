@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WanderCamp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WanderCamp</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="root"></div>
-    <script src="bundle.js"></script>
+  <header>
+    <h1>WanderCamp</h1>
+    <h2>Plan Your Next Overlanding and Camping Adventure</h2>
+  </header>
+  <main>
+    <section>
+      <h3>Route Planning</h3>
+      <form>
+        <label for="location">Enter your destination:</label>
+        <input type="text" id="location" name="location" required>
+        <button type="submit" id="submit-location">Get Weather Forecast</button>
+      </form>
+    </section>
+    <section id="weather-section">
+      <h3>Weather Forecast</h3>
+      <div id="weather-results"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; WanderCamp 2023</p>
+  </footer>
+  <script src="bundle.js"></script>
 </body>
 </html>
